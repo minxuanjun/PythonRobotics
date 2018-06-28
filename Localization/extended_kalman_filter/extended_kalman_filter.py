@@ -138,8 +138,8 @@ def plot_covariance_ellipse(xEst, PEst):
     x = [a * math.cos(it) for it in t]
     y = [b * math.sin(it) for it in t]
     angle = math.atan2(eigvec[bigind, 1], eigvec[bigind, 0])
-    R = np.matrix([[math.cos(angle), math.sin(angle)],
-                   [-math.sin(angle), math.cos(angle)]])
+    R = np.matrix([[math.cos(angle), -math.sin(angle)],
+                   [math.sin(angle), math.cos(angle)]])
     fx = R * np.matrix([x, y])
     px = np.array(fx[0, :] + xEst[0, 0]).flatten()
     py = np.array(fx[1, :] + xEst[1, 0]).flatten()
