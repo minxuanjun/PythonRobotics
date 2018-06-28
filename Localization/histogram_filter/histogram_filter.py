@@ -139,7 +139,7 @@ def observation(xTrue, u, RFID):
             z = np.vstack((z, zi))
 
     # add noise to speed
-    ud = u[:, :]
+    ud = u.copy()
     ud[0] += np.random.randn() * NOISE_SPEED
 
     return xTrue, z, ud
